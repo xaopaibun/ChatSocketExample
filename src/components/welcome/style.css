@@ -1,0 +1,20 @@
+
+.imgfluid {
+ 
+    width: 90%;
+    height: auto;
+    
+}
+.img-right {
+    text-align: right!important;
+    height: 100px;
+}
+.container .content_top{
+    margin-top: 30px;
+    height: 60%;
+}
+.container .content_bottom{
+    height: auto;
+    width: 100%;
+    padding: 25px;
+}
