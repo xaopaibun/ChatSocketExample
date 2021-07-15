@@ -12,7 +12,7 @@ const Welcome = (props) => {
                     <img className="imgfluid" src={props.img} alt="" />
                 </div>
                 <div className="content_bottom">
-                    <p className="text-white title" style={{fontFamily:'inherit'}}>Welcome to emilus</p>
+                    <h1 className="text-white title bold size30">Welcome to emilus</h1>
                     <p className="text-white" style={{ lineHeight: '1.8' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper
                         nisl erat, vel convallis elit fermentum pellentesque.</p>
                 </div>

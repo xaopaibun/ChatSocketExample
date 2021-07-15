@@ -8,6 +8,7 @@ html,
 body{
     height: 100%!important;
     overflow: hidden;
+    
     /* background-color: #fafafb; */
     color: #455560;
     line-height: 1.5;
@@ -19,17 +20,12 @@ body{
    
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: inherit;
+    font-family: 'inherit';
     color: #1a3353;
+    font-size: 30px;
    
 }
 
-.bold{
-    font-weight: 500;
-}
-.bold.size30{
-    font-size: 30px;
-}
 p a{
     color: #3e79f7;
     text-decoration: none;
@@ -59,7 +55,7 @@ p a:hover {
 
 .text-white.title {
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .netdut{
@@ -88,11 +84,26 @@ p a:hover {
     transition: all .3s
 }
 
+.ant-input.error{
+    border: 1px solid #ff6b72;
+}
+
+
 .ant-input:hover {
     border-color: #699dff;
     border-right-width: 1px!important;
 } 
 
+.ant-input.error:focus {
+    border-color: #699dff;
+    border-right-width: 1px!important;
+    outline: 0;
+    box-shadow: 0 0 0 1px #ff6b72;
+}
+
+.colorErr{
+    color: #ff6b72;
+}
 .ant-input:focus {
     border-color: #699dff;
     border-right-width: 1px!important;
@@ -142,10 +153,10 @@ p a:hover {
 }
 
 .div_box20{
-    height: 20px;
+    height: 25px;
 }
 .div_box5{
-    height: 5px;
+    height: 10px;
 }
 
 
@@ -256,8 +267,10 @@ p a:hover {
         align-items:center;
 }
 .input-form-row{
-    width: 380px;
+    width: 430px;
     height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 a.text-white:hover{
 text-decoration: none;

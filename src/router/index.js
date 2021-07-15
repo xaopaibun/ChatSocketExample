@@ -23,7 +23,7 @@ export default function RouterApp() {
                     <SignIn />
                 </Route>
                 <Route path="/">
-                    <SignUp />
+                    <SignIn />
                 </Route>
             </Switch>
         </Router>

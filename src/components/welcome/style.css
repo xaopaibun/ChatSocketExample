@@ -18,3 +18,10 @@
     width: 100%;
     padding: 25px;
 }
+
+.bold{
+    font-weight: 500;
+}
+.bold.size30{
+    font-size: 30px;
+}
