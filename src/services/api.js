@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {  Url_Sever } from '../config/until';
+import {  Url_Sever } from '../utils/until';
 
 const instance = axios.create({
     baseURL: Url_Sever,

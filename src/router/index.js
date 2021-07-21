@@ -5,11 +5,11 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import Chat from "../views/chat";
-import Forgot from "../views/forgot";
-import SignIn from "../views/signin";
-import SignUp from "../views/signup";
-import Product from '../views/product/index';
+import Chat from "../containers/chat";
+import Forgot from "../containers/forgot";
+import SignIn from "../containers/signin";
+import SignUp from "../containers/signup";
+import Product from '../containers/product/index';
 
 export default function RouterApp() {
    

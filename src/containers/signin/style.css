@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    color: #455560;
+    /* color: #455560; */
     font-size: 14px;
 }
 html, 
@@ -9,7 +9,7 @@ body{
     
     
     /* background-color: #fafafb; */
-    color: #455560;
+    
     line-height: 1.5;
 }
 .box_center{

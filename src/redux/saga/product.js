@@ -1,7 +1,7 @@
 import { call, put, takeEvery, all, takeLatest, fork, take } from 'redux-saga/effects'
-import { AuthenType, HomeType } from '../constants';
-import { getdata } from '../services/api';
-import { set_Product, set_ProductError, SHOW_LOADING_ACTION, HIDE_LOADING_ACTION } from '../redux/actions/index';
+import { HomeType } from '../../constants/index';
+import { getdata } from '../../services/api';
+import { set_Product, set_ProductError, SHOW_LOADING_ACTION, HIDE_LOADING_ACTION } from '../actions/productAction';
 
 export function* apiSideEffectTestProduct(action) {
     try {

@@ -1,8 +1,8 @@
-import { call, put, takeEvery, all, takeLatest, fork, take } from 'redux-saga/effects'
-import { AuthenType, HomeType } from '../constants';
-// import { set_Product, set_ProductError } from '../redux/actions';
-import { getdata, loginAdmin } from '../services/api';
-import { TEST_SEND_REQUEST, SHOW_LOADING_ACTION, SET_TOKEN } from '../redux/actions/index';
+ import { call, put, takeEvery, all, takeLatest, fork, take } from 'redux-saga/effects'
+import { AuthenType } from '../../constants';
+import { loginAdmin } from '../../services/api';
+
+import {  SET_TOKEN } from '../actions/authenAction';
 
 
 
@@ -17,7 +17,7 @@ export function* apiSideEffectLoginAdmin() {
         console.log(result.data.accessToken)
         yield call(SetToken, result.data.accessToken)
         yield put(SET_TOKEN(result.data.accessToken))
-        yield put(TEST_SEND_REQUEST())
+         //yield put(TEST_SEND_REQUEST())
     } catch (e) {
         console.log('call api error', e)
     }

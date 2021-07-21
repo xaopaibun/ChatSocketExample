@@ -4,16 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-// import thunk from 'redux-thunk';
-import createSagaMiddleware from 'redux-saga'
-import rootReducer from './redux/reducers/index';
-import { createStore, applyMiddleware } from 'redux';
-import rootSaga  from './saga/rootsaga';
+
+import rootSaga  from './redux/saga/rootsaga';
 import RouterApp from './router';
-
-const sagaMiddleware = createSagaMiddleware()
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
-
+import store, { sagaMiddleware } from './redux/store/configstore';
 
 
 ReactDOM.render(

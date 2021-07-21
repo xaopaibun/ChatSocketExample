@@ -14,10 +14,13 @@ import EgeActiveSvg from "../../assets/svg/eyeactivesvg";
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { LOGIN_ADMIN, LOGIN_REQUEST_ADMIN } from "../../redux/actions";
+
 import LoginFB from "../../components/loginFB";
 import LoginGoogle from "../../components/loginGoogle";
-import { accessToken } from '../../config/until';
+import { accessToken } from '../../utils/until';
+import { LOGIN_ADMIN, LOGIN_REQUEST_ADMIN } from "../../redux/actions/authenAction";
+
+
 
 
 
@@ -68,7 +71,7 @@ const SignIn = () => {
     });
 
     return (
-        <div style={{height: '100vh',overflow:'hidden'}}>
+        <div style={{height: '100vh',overflow:'hidden', color : '#455560'}}>
             <div>
                 <div className="row">
                     <div className="col-sm-8 col-md-8 col-lg-8 col-xl-8">

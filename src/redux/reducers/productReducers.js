@@ -17,7 +17,7 @@ export default function productReducer(state = initialState, action) {
             return state;
 
         case HomeType.TEST_SEND_REQUEST:
-            console.log('test product')
+            console.log('test product call api')
             return state;
 
         case HomeType.SHOW_LOADING_ACTION:
