@@ -3,41 +3,34 @@ import {
     Link, useHistory
 } from "react-router-dom";
 import './style.css';
-import Welcome from "../../components/welcome";
+import Welcome from "components/welcome";
 
-import GoogleSvg from "../../assets/svg/googlesvg";
-import FbSvg from "../../assets/svg/facebooksvg";
-import MailSvg from "../../assets/svg/mailsvg";
-import LockSvg from "../../assets/svg/locksvg";
-import EgeSvg from "../../assets/svg/eyesvg";
-import EgeActiveSvg from "../../assets/svg/eyeactivesvg";
+import MailSvg from "assets/svg/mailsvg";
+import LockSvg from "assets/svg/locksvg";
+import EgeSvg from "assets/svg/eyesvg";
+import EgeActiveSvg from "assets/svg/eyeactivesvg";
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 
-import LoginFB from "../../components/loginFB";
-import LoginGoogle from "../../components/loginGoogle";
-import { accessToken } from '../../utils/until';
-import { LOGIN_ADMIN, LOGIN_REQUEST_ADMIN } from "../../redux/actions/authenAction";
+import LoginFB from "components/loginFB";
+import LoginGoogle from "components/loginGoogle";
 
-
-
-
+import { LOGIN_ADMIN, LOGIN_ERROR, LOGIN_REQUEST_ADMIN, SET_TOKEN } from "redux/actions/authenAction";
+import { accessToken } from 'utils/until';
+import { loginAdmin } from "services/api";
 
 
 const SignIn = () => {
-    
+
 
     const [isshow, setisshow] = useState(false);
-    // const responseFacebook = (response) => {
-    //     console.log(response);
-    // }
+
     const token = useSelector(state => state?.AuthenReducer?.token)
+    const error = useSelector(state => state?.AuthenReducer?.errorlogin)
     const refEmail = useRef('input1');
     const refPassword = useRef('input2');
-    // const  submitLogin = () =>{
-    //     console.log({Email : refEmail.current.value, Password : refPassword.current.value})
-    // }
+
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -55,23 +48,29 @@ const SignIn = () => {
                 .required("Please input your password"),
 
         }),
-        onSubmit: async (values) => {
-           await dispatch(LOGIN_ADMIN())
-           await dispatch(LOGIN_REQUEST_ADMIN(values))
-    
-           if(accessToken){
-            await alert("Login success!");
-            await history.push('/product');
-           }
-           else{
-            alert("Login failed!");
-           }
-           
+        onSubmit: async (valuesinput) => {
+            // await dispatch(LOGIN_ADMIN())
+            // await dispatch(LOGIN_REQUEST_ADMIN(valuesinput))
+            // if (token) {
+            //     alert("Login success!");
+            //     history.push('/product');
+            // }
+            // if(error){
+            //     alert("Login error!");
+            // }
+            loginAdmin(valuesinput).then(res =>{
+                SET_TOKEN(res.data.accessToken);
+                alert("Login success!");
+                history.push('/product');
+            }).catch(e=>{
+                LOGIN_ERROR(e);
+            })
         }
     });
 
+   
     return (
-        <div style={{height: '100vh',overflow:'hidden', color : '#455560'}}>
+        <div style={{ height: '100vh', overflow: 'hidden', color: '#455560' }}>
             <div>
                 <div className="row">
                     <div className="col-sm-8 col-md-8 col-lg-8 col-xl-8">

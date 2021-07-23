@@ -21,6 +21,21 @@ export const LOGIN_ADMIN = () => {
     }
 }
 
+
+export const LOGIN_ERROR = (e) => {
+    return {
+        type: AuthenType.LOGIN_ERROR,
+        payload : e
+    }
+}
+
+
+export const LOGIN_SUCCSESS = () => {
+    return {
+        type: AuthenType.LOGIN_SUCCSESS
+    }
+}
+
  export const SET_TOKEN = (token)=>{
     return {
         type:AuthenType.SET_TOKEN,

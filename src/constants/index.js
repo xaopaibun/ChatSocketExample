@@ -1,3 +1,9 @@
+export const STATUS_CODE = {
+    SUCCESS: 200,
+    CREATED: 201,
+    UPDATED: 202,
+};
+
 export const HomeType = {
     TEST_SEND_REQUEST :'TEST_SEND_REQUEST',
     DataProductError :'DataProductError',
@@ -9,5 +15,7 @@ export const HomeType = {
 export const AuthenType = {
     LOGIN_REQUEST : "LOGIN_REQUEST",
     LOGIN_ADMIN :"LOGIN_ADMIN",
-    SET_TOKEN :'SET_TOKEN'
+    SET_TOKEN :'SET_TOKEN',
+    LOGIN_SUCCSESS :"LOGIN_SUCCSESS",
+    LOGIN_ERROR :"LOGIN_ERROR"
 }

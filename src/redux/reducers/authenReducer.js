@@ -1,7 +1,8 @@
 import { AuthenType } from "../../constants";
 
 const initialState = {
-
+    token : "",
+    err :""
 };
 
 export default function AuthenReducer(state = initialState, action) {
@@ -13,6 +14,13 @@ export default function AuthenReducer(state = initialState, action) {
 
         case AuthenType.LOGIN_ADMIN:
             return state;
+
+            case AuthenType.LOGIN_ERROR:
+
+                return {...state, errorlogin : action.payload};
+            
+            case AuthenType.LOGIN_SUCCSESS:
+                    return state;
 
         case AuthenType.SET_TOKEN:
             console.log(action.payload)
