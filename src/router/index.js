@@ -20,7 +20,7 @@ export default function RouterApp() {
             <Route path="/product">
                     <Product/>
                 </Route>
-                <Route path="/forgot">
+                <Route path="/authen">
                     <Forgot/>
                 </Route>
                 <Route path="/signup">
@@ -33,7 +33,7 @@ export default function RouterApp() {
                     <Chat />
                 </Route>
                 <Route path="/">
-                    <SignIn />
+                    <Forgot/>
                 </Route>
             </Switch>
         </Router>

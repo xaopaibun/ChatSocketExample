@@ -10,6 +10,7 @@ import { useFormik } from 'formik';
 import * as Yup from "yup";
 
 import Welcome from "../../components/welcome"
+import { singup } from "services/api";
 
 const SignUp = () => {
     const [isshow, setisshow] = useState(false);
@@ -34,12 +35,12 @@ const SignUp = () => {
 
         }),
         onSubmit: values => {
-            console.log(values)
+            singup(values).then(res => console.log(res.data)).catch((e) => alert(e)) 
 
         }
     });
     return (
-        <div>
+        <div style={{ height: '100vh', overflow: 'hidden', color: '#455560' }}>
             <div className="row">
                 <div className="col-sm-8 col-md-8 col-lg-8 col-xl-8">
                     <div className="container input-from">
@@ -99,9 +100,10 @@ const SignUp = () => {
                                         <label className="label_input" >ConfirmPassword</label><div className='div_box5' />
                                         <div className="div_input" >
                                             <input
-                                                name='onfirmpassword'
+                                                name='confirmpassword'
                                                 type={isshowConfirm ? "text" : "password"}
                                                 className="ant-input"
+                                            
                                                 value={formik.values.confirmpassword}
                                                 onChange={formik.handleChange}
                                             />

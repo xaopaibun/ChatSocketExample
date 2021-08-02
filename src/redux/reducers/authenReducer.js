@@ -1,8 +1,9 @@
 import { AuthenType } from "../../constants";
 
 const initialState = {
-    token : "",
-    err :""
+    token: "",
+    err: "",
+    image : "http://simpleicon.com/wp-content/uploads/user1.png",
 };
 
 export default function AuthenReducer(state = initialState, action) {
@@ -15,16 +16,21 @@ export default function AuthenReducer(state = initialState, action) {
         case AuthenType.LOGIN_ADMIN:
             return state;
 
-            case AuthenType.LOGIN_ERROR:
+        case AuthenType.LOGIN_ERROR:
 
-                return {...state, errorlogin : action.payload};
-            
-            case AuthenType.LOGIN_SUCCSESS:
-                    return state;
+            return { ...state, errorlogin: action.payload };
+
+        case AuthenType.LOGIN_SUCCSESS:
+            return state;
 
         case AuthenType.SET_TOKEN:
-            console.log(action.payload)
             return { ...state, token: action.payload }
+
+        case AuthenType.LOGIN_FACEBOOK:
+            return { ...state, name :  action.payload.name, image: action.payload.image }
+        
+        case AuthenType.LOGIN_LOCAL:
+                return { ...state, name : action.payload}
 
         default:
             return state;

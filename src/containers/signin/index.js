@@ -18,7 +18,7 @@ import LoginGoogle from "components/loginGoogle";
 
 import { LOGIN_ADMIN, LOGIN_ERROR, LOGIN_REQUEST_ADMIN, SET_TOKEN } from "redux/actions/authenAction";
 import { accessToken } from 'utils/until';
-import { loginAdmin } from "services/api";
+import { loginAdmin, loginUser } from "services/api";
 
 
 const SignIn = () => {
@@ -49,19 +49,8 @@ const SignIn = () => {
 
         }),
         onSubmit: async (valuesinput) => {
-            // await dispatch(LOGIN_ADMIN())
-            // await dispatch(LOGIN_REQUEST_ADMIN(valuesinput))
-            // if (token) {
-            //     alert("Login success!");
-            //     history.push('/product');
-            // }
-            // if(error){
-            //     alert("Login error!");
-            // }
-            loginAdmin(valuesinput).then(res =>{
-                SET_TOKEN(res.data.accessToken);
-                alert("Login success!");
-                history.push('/product');
+            loginUser(valuesinput).then(res =>{
+                console.log(res)
             }).catch(e=>{
                 LOGIN_ERROR(e);
             })

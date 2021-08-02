@@ -42,3 +42,18 @@ export const LOGIN_SUCCSESS = () => {
         payload : token
     }
  }
+
+
+ export const LOGIN_FACEBOOK = (payload) => {
+    return {
+        type: AuthenType.LOGIN_FACEBOOK,
+        payload : payload
+    }
+}
+
+export const LOGIN_LOCAL= (payload) => {
+    return {
+        type: AuthenType.LOGIN_LOCAL,
+        payload : payload
+    }
+}

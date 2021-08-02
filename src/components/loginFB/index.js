@@ -1,18 +1,15 @@
 import FbSvg from '../../assets/svg/facebooksvg'
 import FacebookLogin from 'react-facebook-login';
 import axios from 'axios';
+import { LOGIN_FACEBOOK } from 'redux/actions/authenAction';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 const LoginFB = () => {
+  const dispatch = useDispatch();
+  const history = useHistory()
   const responseFacebook = (response) => {
-    console.log(response);
-    axios.post('http://localhost:5000/loginFb', {
-      FB: response,
-    })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    dispatch(LOGIN_FACEBOOK({name : response.name, image: response.picture.data.url}))
+    history.push('/chat')
   }
 
   return (
