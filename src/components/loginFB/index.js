@@ -8,8 +8,17 @@ const LoginFB = () => {
   const dispatch = useDispatch();
   const history = useHistory()
   const responseFacebook = (response) => {
-    dispatch(LOGIN_FACEBOOK({name : response.name, image: response.picture.data.url}))
-    history.push('/chat')
+    axios.post('http://localhost:5000/loginFb', {FB :response})
+      .then(function (res) {
+        dispatch(LOGIN_FACEBOOK({ name: response.name, image: response.picture.data.url }))
+        history.push('/chat')
+        console.log(res);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+
   }
 
   return (
