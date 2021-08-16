@@ -239,10 +239,11 @@ p a:hover {
     height: 1px;
     position: absolute;
     top: 10px;
-    left: 0;
+    left: 15px;
+
     z-index: 2;
     width: 100%;
-    margin-right: 10px;
+   
     background-color: #e6ebf1;
 }
 
@@ -255,7 +256,7 @@ p a:hover {
     right: 0;
     z-index: 2;
     width: 100%;
-    margin-left: 10px;
+ 
     background-color: #e6ebf1;
 }
 .input-from{
@@ -266,11 +267,20 @@ p a:hover {
         align-items:center;
 }
 .input-form-row{
-    width: 430px;
+    width: 410px;
     height: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+    
 }
+@media screen and (max-width : 768px) {
+  
+    .input-form-row{
+        width: 90%;
+        
+    }
+}
+
 a.text-white:hover{
 text-decoration: none;
 }

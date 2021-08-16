@@ -20,12 +20,12 @@ const Forgot = () => {
         },
         validationSchema: Yup.object({
             name: Yup.string()
-                .required("Please input your full name??"),
+                .required("Please input your name??"),
         }),
         onSubmit: (valuesinput) => {
             //console.log(valuesinput.name)
             dispatch(LOGIN_LOCAL(valuesinput.name))
-            history.push('/chat')
+            history.push('/chatEx')
         }
     });
     return (
@@ -38,7 +38,7 @@ const Forgot = () => {
                             <div style={{ textAlign: 'center' }}>
                                 <img src='https://emilus.themenate.net/img/logo.png' height={70} width={100} />
 
-                                <h3 style={{ fontWeight: '700', fontSize: '20px' }}>Enter your Full Name ?</h3>
+                                <h3 style={{ fontWeight: '700', fontSize: '20px' }}>Enter your Name?</h3>
                                 <div className='div_box5' />
 
                                 {/* <p className='color_text'>Enter your Full Name</p> */}
@@ -47,7 +47,7 @@ const Forgot = () => {
                                 <div className='div_input'>
                                     <input className='color_input' name='name' type="text"
                                         value={formik.values.name}
-                                        onChange={formik.handleChange} id="login-form_email" placeholder='Full Name' className="ant-input" />
+                                        onChange={formik.handleChange} id="login-form_email" placeholder='Name' className="ant-input" />
                                     <span className='text-primary'>
                                         <MailSvg />
                                     </span>
@@ -63,24 +63,7 @@ const Forgot = () => {
                                     <span id="btntext">Send</span>
                                 </button>
                             </form>
-                            <div className='div_box5' />
-                            <div className="box_connect">
-                                <div class="row text-center">
-                                    <div class="col-xl-4 netdut">
-                                        <div className='netdut1' />
-                                    </div>
-                                    <div class="col-xl-4">
-                                        <p className="content">or</p>
-                                    </div>
-                                    <div class="col-xl-4 netdut">
-                                        <div className='netdut2' />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="d-flex justify-content-center">
-                                <LoginGoogle />
-                                <LoginFB />
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

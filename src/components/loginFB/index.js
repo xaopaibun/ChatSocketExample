@@ -4,6 +4,7 @@ import axios from 'axios';
 import { LOGIN_FACEBOOK } from 'redux/actions/authenAction';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { SetToken } from 'utils/until';
 const LoginFB = () => {
   const dispatch = useDispatch();
   const history = useHistory()
@@ -12,7 +13,7 @@ const LoginFB = () => {
       .then(function (res) {
         dispatch(LOGIN_FACEBOOK({ name: response.name, image: response.picture.data.url }))
         history.push('/chat')
-        console.log(res);
+        SetToken(response.accessToken);
       })
       .catch(function (error) {
         // handle error
@@ -29,7 +30,7 @@ const LoginFB = () => {
       fields="name,email,picture"
       cssClass="ant-btn"
       icon={<FbSvg />}
-      textButton='Facebook'
+      textButton=' Facebook'
       callback={responseFacebook} />
 
   )

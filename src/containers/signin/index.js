@@ -19,6 +19,7 @@ import LoginGoogle from "components/loginGoogle";
 import { LOGIN_ADMIN, LOGIN_ERROR, LOGIN_REQUEST_ADMIN, SET_TOKEN } from "redux/actions/authenAction";
 import { accessToken } from 'utils/until';
 import { loginAdmin, loginUser } from "services/api";
+import { SetToken } from '../../utils/until';
 
 
 const SignIn = () => {
@@ -36,8 +37,8 @@ const SignIn = () => {
 
     const formik = useFormik({
         initialValues: {
-            gmail: "vanquy33338888@gmail.com",
-            password: "vanquy",
+            gmail: "",
+            password: "",
         },
         validationSchema: Yup.object({
             gmail: Yup.string()
@@ -50,8 +51,20 @@ const SignIn = () => {
         }),
         onSubmit: async (valuesinput) => {
             loginUser(valuesinput).then(res =>{
-                console.log(res)
+                if(res.status == 200){
+                    alert('Login thanh cong')
+                    SetToken(res.data.accessToken)
+                    history.push('/chat')
+                }
+                else if(res.status == 201){
+                    alert('Tai khoan chua duoc kich hoat')
+                }
+                else{
+                    alert('Sai tai khoan hoac mat khau ')
+                }
+               
             }).catch(e=>{
+                alert('Call api that bai')
                 LOGIN_ERROR(e);
             })
         }
@@ -62,7 +75,7 @@ const SignIn = () => {
         <div style={{ height: '100vh', overflow: 'hidden', color: '#455560' }}>
             <div>
                 <div className="row">
-                    <div className="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                    <div className="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                         <div className="input-from">
                             <div className="input-form-row">
                                 <h1 className="bold size30"> Sign In</h1>
@@ -129,14 +142,14 @@ const SignIn = () => {
                                 <div className='div_box20' />
 
                                 <div className="box_connect">
-                                    <div class="row text-center">
-                                        <div class="col-xl-4 netdut">
+                                    <div className="row text-center">
+                                        <div className="col-3 col-sm-4 col-md-4 col-lg-4 col-xl-4 netdut">
                                             <div className='netdut1' />
                                         </div>
-                                        <div class="col-xl-4">
+                                        <div className="col-5 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                                             <p className="content">or connect with</p>
                                         </div>
-                                        <div class="col-xl-4 netdut">
+                                        <div className="col-3 col-sm-4 col-md-4 col-lg-4 col-xl-4 netdut">
                                             <div className='netdut2' />
                                         </div>
                                     </div>
@@ -150,7 +163,7 @@ const SignIn = () => {
                         </div>
                     </div>
 
-                    <div className="col-sm-4 col-md-4 col-lg-4 col-xl-4 IMGBG">
+                    <div className="col-0 col-sm-4 col-md-4 col-lg-4 col-xl-4 IMGBG">
                         <Welcome img='https://emilus.themenate.net/img/others/img-18.png' />
                     </div>
                 </div>
