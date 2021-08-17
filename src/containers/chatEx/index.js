@@ -19,7 +19,7 @@ const ChatEx = () => {
     // const image = useSelector(state => state.AuthenReducer.image)
     const name = useSelector(state => state.AuthenReducer.name)
     React.useEffect(() => {
-        socketRef.current = socketIOClient.connect('http://localhost:5000')
+        socketRef.current = socketIOClient.connect('https://serverchatexample.herokuapp.com')
 
         socketRef.current.emit('sendUser', name)
 
